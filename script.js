@@ -30,32 +30,12 @@ if (hamburger && navMenu) {
 // POPUP FUNCTION
 // ============================================
 
-function showPopup(type, message) {
-    const old = document.querySelector(".custom-popup");
-    if (old) old.remove();
-
-    const popup = document.createElement("div");
-    popup.className = `custom-popup ${type}`;
-    popup.innerHTML = `
-        <div class="popup-content">
-            <div>${message}</div>
-            <button onclick="this.parentElement.parentElement.remove()">✕</button>
-        </div>
-    `;
-
-    document.body.appendChild(popup);
-
-    setTimeout(() => popup.remove(), 5000);
-}
-
-// ============================================
-// RAZORPAY + BOOKING SYSTEM (FIXED)
-// ============================================
-
 function sendBooking(form, type) {
+
     if (!form) return;
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
+
         e.preventDefault();
 
         const submitBtn = form.querySelector('button[type="submit"]');
@@ -75,60 +55,130 @@ function sendBooking(form, type) {
             date: formData.get("date") || "",
             package: formData.get("package") || "",
             message: formData.get("message") || "",
+
             totalPrice: document.getElementById("totalPrice")
                 ? document.getElementById("totalPrice").value.replace(/[^\d]/g, "")
                 : "",
-            advancePrice: "500"
+
+            advancePrice: "600"
         };
 
-        const options = {
-            key: "rzp_live_SqStrBrYIzThka",
-            amount:6000,
-            currency: "INR",
-            name: "Jadhav Camping",
-            description: "Booking Payment",
+       const options = {
 
-            handler: async function (response) {
+    key: "rzp_live_SqStrBrYIzThka",
 
-                data.paymentId = response.razorpay_payment_id;
+    amount: 100,
 
-                try {
-                    await fetch(scriptURL, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(data)
-                    });
+    currency: "INR",
 
-                    showPopup("success", "Booking Successful 🎉");
+    name: "Jadhav Camping",
 
-                    form.reset();
+    description: "Pay ₹600 to Confirm Your Booking",
+       notes: {
 
-                } catch (err) {
-                    console.error(err);
-                    showPopup("error", "Payment done पण data save नाही झाला");
-                }
+        payment_for: "Advance Booking",
 
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+        advance_amount: "₹600 Advance Booking Fee"
+
+    },
+
+  handler: async function (response) {
+
+    data.paymentId = response.razorpay_payment_id;
+
+    try {
+
+        await fetch(scriptURL, {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+                "Content-Type": "application/json"
             },
 
-            modal: {
-                ondismiss: function () {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }
-            },
+            body: JSON.stringify(data)
 
-            theme: {
-                color: "#4CAF50"
-            }
-        };
+        });
 
-        const rzp = new Razorpay(options);
-        rzp.open();
+        // Success Popup
+        showSuccessPopup(
+            data.name,
+            response.razorpay_payment_id
+        );
+
+        // WhatsApp Message
+        const whatsappMessage =
+        `🏕️ Jadhav Camping Booking Confirmed
+        👤 Name: ${data.name}
+        💳 Payment ID: ${response.razorpay_payment_id}
+        💰 Advance Paid: ₹600
+        📅 Booking Date: ${data.date}
+        ✅ Your booking has been confirmed.
+        Thank you for booking with Jadhav Camping 🌿`;
+
+        // Your WhatsApp Number
+        const whatsappNumber = "917498100549";
+
+        // Open WhatsApp
+        window.open(
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+            "_blank"
+        );
+
+        // Reset Form
+        form.reset();
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("Payment successful but data save failed");
+
+    }
+
+    submitBtn.innerHTML = originalText;
+
+    submitBtn.disabled = false;
+},
+
+    modal: {
+
+        ondismiss: function () {
+
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+        }
+    },
+
+    theme: {
+        color: "#4CAF50"
+    }
+};
+
+const rzp = new Razorpay(options);
+
+rzp.open();
     });
+}
+
+
+// Show Success Popup
+function showSuccessPopup(name, paymentId){
+
+    document.getElementById("success-popup").style.display = "flex";
+
+    document.getElementById("receipt-name").innerText = name;
+
+    document.getElementById("receipt-payment").innerText = paymentId;
+}
+
+function closeSuccessPopup(){
+
+    document.getElementById("success-popup").style.display = "none";
+
 }
 
 // ============================================
@@ -145,31 +195,54 @@ bookingForms.forEach((form) => {
 // GROUP PRICE CALCULATION
 // ============================================
 
-const membersInput = document.getElementById("groupMembers");
-const packageInput = document.getElementById("groupPackage");
-const totalPrice = document.getElementById("totalPrice");
+document.addEventListener("DOMContentLoaded", function () {
 
-function calculatePrice() {
-    if (!membersInput || !packageInput || !totalPrice) return;
+    const membersInput = document.getElementById("groupMembers");
 
-    const members = parseInt(membersInput.value) || 0;
-    const price = parseInt(packageInput.value) || 0;
+    const packageInput = document.getElementById("groupPackage");
 
-    let total = members * price;
-    let discount = 0;
+    const totalPrice = document.getElementById("totalPrice");
 
-    if (members >= 20) discount = 20;
-    else if (members >= 10) discount = 10;
+    function calculatePrice() {
 
-    const final = total - (total * discount) / 100;
+        const members = parseInt(membersInput.value) || 0;
 
-    totalPrice.value = final > 0 ? `₹${final}` : "";
-}
+        const price = parseInt(packageInput.value) || 0;
 
-if (membersInput && packageInput) {
+        if (!members || !price) {
+
+            totalPrice.value = "";
+
+            return;
+        }
+
+        let total = members * price;
+
+        let discount = 0;
+
+        if (members >= 20) {
+
+            discount = 20;
+
+        }
+
+        else if (members >= 10) {
+
+            discount = 10;
+
+        }
+
+        const finalAmount = total - (total * discount / 100);
+
+        totalPrice.value =
+        `Total ₹${total} | ${discount}% OFF | Final ₹${finalAmount}`;
+    }
+
     membersInput.addEventListener("input", calculatePrice);
+
     packageInput.addEventListener("change", calculatePrice);
-}
+
+});
 
 // ============================================
 // SMOOTH SCROLL
@@ -541,3 +614,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+// Close Top Banner
+function closeBanner(){
+    document.getElementById("top-banner").style.display = "none";
+}

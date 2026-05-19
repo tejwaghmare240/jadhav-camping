@@ -1694,3 +1694,237 @@ section{
     }
 
 }
+
+/* Glass Popup Banner */
+.top-banner{
+    position: fixed;
+    top: -500px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 92%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 15px;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    z-index: 9999;
+    text-align: center;
+
+    animation: dropBanner 1s ease forwards;
+    
+}
+
+/* Image */
+.top-banner img{
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+    margin: auto;
+}
+
+/* Text */
+.banner-text h3{
+    margin-top: 18px;
+    font-size: 30px;
+    color: white;
+}
+
+.banner-text p{
+    margin-top: 10px;
+    font-size: 17px;
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+/* Close Button */
+.close-banner{
+    position: absolute;
+    top: 10px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.close-banner:hover{
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.1);
+}
+
+/* Drop Animation */
+@keyframes dropBanner{
+
+    0%{
+        top: -500px;
+        opacity: 0;
+    }
+
+    100%{
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+
+/* Success Popup */
+.success-popup{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+/* Box */
+.success-box{
+    width: 90%;
+    max-width: 400px;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    color: white;
+
+    animation: popupScale 0.5s ease;
+}
+
+/* Tick Circle */
+.checkmark-circle{
+    width: 100px;
+    height: 100px;
+
+    margin: auto;
+
+    border-radius: 50%;
+    background: #22c55e;
+
+    position: relative;
+
+    animation: pop 0.5s ease;
+}
+
+/* Tick */
+.checkmark{
+    position: absolute;
+
+    left: 28px;
+    top: 22px;
+
+    width: 25px;
+    height: 50px;
+
+    border: solid white;
+    border-width: 0 6px 6px 0;
+
+    transform: rotate(45deg);
+}
+
+/* Text */
+.success-box h2{
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.success-box p{
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Button */
+.success-box button{
+    margin-top: 20px;
+
+    padding: 12px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #22c55e;
+
+    color: white;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes popupScale{
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop{
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* payment receipt */
+
+.receipt-details{
+    margin-top: 20px;
+    text-align: left;
+}
+
+.receipt-details p{
+    margin: 10px 0;
+    font-size: 16px;
+}

@@ -139,6 +139,60 @@
         </div>
     </section>
 
+        <!-- Success Popup -->
+<div id="success-popup" class="success-popup">
+
+    <div class="success-box">
+
+        <div class="checkmark-circle">
+            <div class="checkmark"></div>
+        </div>
+
+        <h2>Booking Successful 🎉</h2>
+
+        <p>
+            Your camping booking has been confirmed successfully.
+        </p>
+
+        <button onclick="closeSuccessPopup()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Receipt Popup -->
+<div id="success-popup" class="success-popup">
+
+    <div class="success-box">
+
+        <div class="checkmark-circle">
+            <div class="checkmark"></div>
+        </div>
+
+        <h2>Booking Confirmed 🎉</h2>
+
+        <div class="receipt-details">
+
+            <p><strong>Name:</strong> <span id="receipt-name"></span></p>
+
+            <p><strong>Payment ID:</strong> <span id="receipt-payment"></span></p>
+
+            <p><strong>Advance Paid:</strong> ₹600</p>
+
+            <p><strong>Status:</strong> Confirmed ✅</p>
+
+        </div>
+
+        <button onclick="closeSuccessPopup()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
     
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
