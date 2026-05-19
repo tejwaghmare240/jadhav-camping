@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Jadhav Camping</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="navbar"><!-- Same nav, "Book Now" active --></nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="hero-video.mp4/v2.mp4" type="video/mp4">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4" alt="Camping">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Book Your Adventure</h1>
+            <p class="hero-subtitle">Secure Your Camping spot today!</p>
+
+            <div class="hero-buttons">
+                <a href="booking.html" class="cta-button primary">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-form-section">
+        <div class="container">
+
+            <div class="booking-wrapper">
+
+                <!-- Individual Booking -->
+                <form class="booking-form" action="#" method="POST">
+                    <h2>Individual Booking</h2>
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Full Name *" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email (Optional)">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="number" name="people" placeholder="Number of People" min="1" max="50" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="date" name="date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="package" required>
+                            <option value="">Select Package</option>
+                            <option value="tent">🏕️ Tent Camping - ₹1500/night</option>
+                            <option value="farmhouse">🏡 Farm House - ₹1000/person</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Special requirements? (Dietary needs, group details etc.)"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button full-width">
+                      📅 Book Now - Pay on Arrival
+                    </button>
+                </form>
+
+
+                <!-- Group Booking -->
+                <form class="booking-form" action="#" method="POST">
+                    <h2>Group Booking</h2>
+
+                    <div class="form-group">
+                        <input type="text" name="group_name" placeholder="Group Leader Name *" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="group_phone" placeholder="Phone Number *" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="group_email" placeholder="Email (Optional)">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="number" id="groupMembers" name="members" placeholder="Total Members *" min="1" max="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="date" name="group_date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="groupPackage" name="package" required>
+                            <option value="">Select Package</option>
+                            <option value="1500">🏕️ Tent Camping - ₹1500/person</option>
+                            <option value="1000">🏡 Farm House - ₹1000/person</option>
+                        </select>
+                    </div>
+
+                    <!-- Auto Price -->
+                    <div class="form-group">
+                        <input type="text" id="totalPrice" placeholder="Total Price" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="group_message" placeholder="Group details / special requirements"></textarea>
+                    </div>
+
+                   <button type="submit" class="cta-button full-width">
+                      👥 Confirm Group Booking
+                    </button>
+                 </form>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

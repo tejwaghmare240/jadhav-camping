@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Jadhav Camping</title>
+    <!-- ✅ CSS CONNECTED -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Same Nav as above (Services → Gallery active) -->
+    <nav class="navbar">
+        <!-- Copy nav from services.html, change "Services" to "Gallery" active -->
+        <div class="nav-container">
+            <div class="nav-logo"><i class="fas fa-campground"></i> Jadhav Camping</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+        </div>
+    </nav>
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero">
+
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="hero-video.mp4/v2.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1 class="hero-title">Gallery</h1>
+
+        <p class="hero-subtitle">
+            Moments from our happy campers 🏕️✨
+        </p>
+
+        <!-- PHOTO / VIDEO BUTTONS -->
+        <div class="hero-buttons">
+
+            <button class="gallery-tab active" onclick="showGallery('photos')">
+                <i class="fas fa-image"></i> Photos
+            </button>
+
+            <button class="gallery-tab" onclick="showGallery('videos')">
+                <i class="fas fa-play-circle"></i> Videos
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHOTO GALLERY
+========================= -->
+
+<section id="photos-section" class="gallery-section section-padding">
+
+    <div class="container">
+
+        <h2 class="section-title">Photo Gallery</h2>
+
+        <div class="gallery-grid">
+
+            <!-- PHOTO 1 -->
+            <div class="gallery-item">
+                <img src="assist/image/i1.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Cozy Tents</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 2 -->
+            <div class="gallery-item">
+                <img src="assist/image/i2.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Camp Area</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 3 -->
+            <div class="gallery-item">
+                <img src="assist/image/i3.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Special Attraction</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 4 -->
+            <div class="gallery-item">
+                <img src="assist/image/i4.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Sunset View</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 5 -->
+            <div class="gallery-item">
+                <img src="assist/image/i5.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Fun</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 6 -->
+            <div class="gallery-item">
+                <img src="assist/image/i6.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Night Games</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 7 -->
+            <div class="gallery-item">
+                <img src="assist/image/i7.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Musical Night</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 8 -->
+            <div class="gallery-item">
+                <img src="assist/image/i8.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Musical Night</h3>
+                </div>
+            </div>
+
+            <!-- PHOTO 9 -->
+            <div class="gallery-item">
+                <img src="assist/image/i9.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Nature Stay</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 10 -->
+            <div class="gallery-item">
+                <img src="assist/image/i10.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Fun</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 11 -->
+            <div class="gallery-item">
+                <img src="assist/image/i11.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Fram House</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 12 -->
+            <div class="gallery-item">
+                <img src="assist/image/i12.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>River Fun</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 13 -->
+            <div class="gallery-item">
+                <img src="assist/image/i13.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Musical Night</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 14 -->
+            <div class="gallery-item">
+                <img src="assist/image/i14.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Camping Night</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 15 -->
+            <div class="gallery-item">
+                <img src="assist/image/i15.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Camping Night</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 16 -->
+            <div class="gallery-item">
+                <img src="assist/image/169.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Camping Night</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 17 -->
+            <div class="gallery-item">
+                <img src="assist/image/i17.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Treck</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 18 -->
+            <div class="gallery-item">
+                <img src="assist/image/i18.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Treck</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 19 -->
+            <div class="gallery-item">
+                <img src="assist/image/i19.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Treck</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 20 -->
+            <div class="gallery-item">
+                <img src="assist/image/i20.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Treck</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 21 -->
+            <div class="gallery-item">
+                <img src="assist/image/i21.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Advature</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 22 -->
+            <div class="gallery-item">
+                <img src="assist/image/i22.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Night Tree</h3>
+                </div>
+            </div>
+
+             <!-- PHOTO 23-->
+            <div class="gallery-item">
+                <img src="assist/image/i23.jpg" alt="">
+                <div class="gallery-overlay">
+                    <h3>Group Fun</h3>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEO SECTION
+========================= -->
+
+<section id="videos-section" class="cinematic-videos section-padding">
+
+    <div class="container">
+
+        <h2 class="section-title">Video Gallery</h2>
+
+        <div class="cinematic-grid">
+
+            <!-- VIDEO 1 -->
+            <div class="cinematic-item large">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="assist/video/v1.mp4">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Camp Site Tour</h3>
+                    <p>Experience Jadhav Camping from the sky</p>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 2 -->
+            <div class="cinematic-item">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Treck</h3>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 3 -->
+            <div class="cinematic-item">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Group Fun With Treck</h3>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 4 -->
+            <div class="cinematic-item">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Camping View</h3>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 5 -->
+            <div class="cinematic-item">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Camp Reel</h3>
+                </div>
+
+            </div>
+
+             <!-- VIDEO 6 -->
+            <div class="cinematic-item">
+
+                <video autoplay muted loop playsinline
+                       class="popup-trigger"
+                       data-video="">
+
+                    <source src="" type="video/mp4">
+
+                </video>
+
+                <div class="cinematic-overlay">
+                    <h3>Camp Reel</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VIDEO POPUP -->
+
+<div id="videoModal" class="video-modal">
+
+    <span class="close-video">&times;</span>
+
+    <video id="popupVideo" controls></video>
+
+</div>
+
+  <!-- Social media  -->
+    <div class="social-float">
+
+        <a href="https://www.instagram.com/_jadhav_farmhouse_?igsh=MTRwd2V0ODhyYzViZw%3D%3D&utm_source=qr" target="_blank" class="social-icon instagram">
+        <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://wa.me/917498100549?text=Hi%20Jadhav%20Camping%2C%20I%27d%20like%20to%20book%20a%20camping%20trip" target="_blank" class="social-icon whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon facebook">
+       <i class="fab fa-facebook-f"></i>
+     </a> 
+</div>
+    <!-- Copy footer from services.html -->
+    <script src="script.js"></script>
+</body>
+</html>

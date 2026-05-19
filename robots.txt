@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jadhav-camping.netlify.app/sitemap.xml
