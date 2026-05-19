@@ -65,7 +65,7 @@ function sendBooking(form, type) {
 
        const options = {
 
-    key: "rzp_live_SqStrBrYIzThka",
+    key: "rzp_live_SrHuFocv017uV4",
 
     amount: 100,
 
