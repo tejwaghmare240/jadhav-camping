@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jadhav-camping.netlify.app/sitemap.xml
+Sitemap: https://tejwaghmare240.github.io/jadhav-camping/sitemap.xml
