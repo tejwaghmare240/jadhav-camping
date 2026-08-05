@@ -67,7 +67,7 @@ function sendBooking(form, type) {
 
     key: "rzp_live_SrHuFocv017uV4",
 
-    amount: 100,
+    amount: 60000,
 
     currency: "INR",
 
